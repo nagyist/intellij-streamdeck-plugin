@@ -1,5 +1,3 @@
-import { SelectElement } from './index'
-
 /**
  * Global settings for all buttons
  */

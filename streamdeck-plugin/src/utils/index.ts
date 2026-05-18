@@ -19,19 +19,6 @@ interface FetchAPI {
     port:string
     password:string
 }
-
-export async function fetchApi<T>({ body, endpoint, method, accessToken }: FetchAPI): Promise<T> {
-  return await (
-    await fetch(`http://localhost:21420${endpoint}`, {
-      method,
-      // headers: {
-      //   Authorization: `Bearer ${accessToken}`,
-      // },
-      body,
-    })
-  ).json()
-}
-
 /**
  * Try call IDE built-in HTTP Service
  * @param body
@@ -95,14 +82,4 @@ export async function fetchJetBrainsIDE({ body, endpoint, method, password, host
           }
       }
   }
-
-}
-
-export interface SelectElement {
-  id?: string
-  name?: string
-}
-interface AddSelectOption {
-  select: HTMLSelectElement
-  element: SelectElement
 }

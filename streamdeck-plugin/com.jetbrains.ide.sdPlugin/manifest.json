@@ -10,7 +10,7 @@
   "Name": "JetBrains IDE",
   "Icon": "icons/idea",
   "URL": "https://github.com/JetBrains/intellij-streamdeck-plugin",
-  "Version": "1.0.6.0",
+  "Version": "1.0.6.1",
   "OS": [
     {
       "Platform": "mac",

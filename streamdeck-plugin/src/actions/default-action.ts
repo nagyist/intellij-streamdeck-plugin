@@ -10,7 +10,6 @@ import {
 import {IdeaPlugin} from '../idea-plugin'
 import {ActionSettingsInterface, GlobalSettingsInterface} from "../utils/interface";
 import {fetchJetBrainsIDE, isGlobalSettingsSet} from "../utils";
-import {Status} from "../types";
 
 export abstract class DefaultAction<Instance> extends StreamDeckAction<
     IdeaPlugin,
