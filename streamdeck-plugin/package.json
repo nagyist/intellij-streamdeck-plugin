@@ -14,25 +14,25 @@
   "author": "Thibaut Sabot",
   "license": "MIT",
   "devDependencies": {
-    "@testing-library/dom": "^8.13.0",
-    "@tsconfig/recommended": "^1.0.1",
-    "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.33",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "eslint": "9.26.0",
-    "eslint-config-prettier": "^8.5.0",
-    "jest": "^28.1.0",
-    "jest-environment-jsdom": "^28.1.0",
-    "msw": "^0.39.2",
-    "prettier": "^2.6.2",
-    "ts-jest": "^28.0.2",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.4",
+    "@testing-library/dom": "^10.4.1",
+    "@tsconfig/recommended": "^1.0.13",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.59.3",
+    "@typescript-eslint/parser": "^8.59.3",
+    "eslint": "10.4.0",
+    "eslint-config-prettier": "^10.1.8",
+    "jest": "^30.4.2",
+    "jest-environment-jsdom": "^30.4.1",
+    "msw": "^2.14.6",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
     "watchify": "^4.0.0"
   },
   "dependencies": {
     "isomorphic-fetch": "^3.0.0",
-    "streamdeck-typescript": "^3.1.4"
+    "streamdeck-typescript": "^3.3.4"
   }
 }
