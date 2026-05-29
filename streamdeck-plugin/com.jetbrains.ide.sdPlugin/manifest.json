@@ -200,6 +200,18 @@
       "Tooltip": "Reset Frame",
       "SupportedInMultiActions": true,
       "UUID": "com.jetbrains.idea.action.pop.frame"
+    },
+    {
+      "Icon": "icons/actions/terminal_dark",
+      "Name": "Terminal",
+      "States": [
+        {
+          "Image": "icons/terminal_dark"
+        }
+      ],
+      "Tooltip": "Terminal",
+      "SupportedInMultiActions": true,
+      "UUID": "com.jetbrains.idea.action.terminal.toolwindow"
     }
   ]
 }
