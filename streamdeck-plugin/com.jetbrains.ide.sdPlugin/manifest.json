@@ -212,6 +212,18 @@
       "Tooltip": "Terminal",
       "SupportedInMultiActions": true,
       "UUID": "com.jetbrains.idea.action.terminal.toolwindow"
+    },
+    {
+      "Icon": "icons/actions/claude",
+      "Name": "Claude Code",
+      "States": [
+        {
+          "Image": "icons/claude"
+        }
+      ],
+      "Tooltip": "Claude Code",
+      "SupportedInMultiActions": true,
+      "UUID": "com.jetbrains.idea.action.claude.code"
     }
   ]
 }

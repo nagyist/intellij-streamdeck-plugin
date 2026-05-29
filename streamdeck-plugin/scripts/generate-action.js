@@ -77,19 +77,47 @@ class ActionGenerator {
     fs.mkdirSync(this.iconsActionsDir, { recursive: true });
     fs.mkdirSync(this.iconsDir,        { recursive: true });
 
-    const svgBuf = fs.readFileSync(this.svgPath);
+    const svgSrc = fs.readFileSync(this.svgPath, 'utf8');
     const targets = [
       { size: 72,  name: `${this.iconBase}.png` },
       { size: 144, name: `${this.iconBase}_2x.png` },
     ];
     for (const t of targets) {
-      const png = await sharp(svgBuf, { density: 384 })
+      const svgScaled = this._rewriteSvgSize(svgSrc, t.size);
+      const png = await sharp(Buffer.from(svgScaled), { density: 384 })
         .resize(t.size, t.size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         .png()
         .toBuffer();
       fs.writeFileSync(path.join(this.iconsActionsDir, t.name), png);
       fs.writeFileSync(path.join(this.iconsDir,        t.name), png);
     }
+  }
+
+  /**
+   * Rewrite the root <svg> element so the icon renders larger with padding.
+   * Forces width/height to the target size and viewBox to "-10 -10 40 40"
+   * (the original content sits in the middle 20×20 region, leaving 10-unit
+   * padding on each side for breathing room on Stream Deck keys).
+   *
+   * @param {string} svg   Source SVG markup
+   * @param {number} size  Target pixel dimension (72 or 144)
+   * @returns {string}
+   */
+  _rewriteSvgSize(svg, size) {
+    const viewBox = '-10 -10 40 40';
+    return svg.replace(/<svg\b([^>]*)>/i, (match, attrs) => {
+      let next = attrs;
+      next = /\swidth\s*=\s*"[^"]*"/i.test(next)
+        ? next.replace(/\swidth\s*=\s*"[^"]*"/i, ` width="${size}"`)
+        : ` width="${size}"` + next;
+      next = /\sheight\s*=\s*"[^"]*"/i.test(next)
+        ? next.replace(/\sheight\s*=\s*"[^"]*"/i, ` height="${size}"`)
+        : ` height="${size}"` + next;
+      next = /\sviewBox\s*=\s*"[^"]*"/i.test(next)
+        ? next.replace(/\sviewBox\s*=\s*"[^"]*"/i, ` viewBox="${viewBox}"`)
+        : ` viewBox="${viewBox}"` + next;
+      return `<svg${next}>`;
+    });
   }
 
   _updateManifest() {

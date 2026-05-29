@@ -19,6 +19,7 @@ import {ActionIdBrowserAction} from "./actions/action-id-browser-action";
 import {StepIntoAction} from "./actions/step-into-action";
 import {PopFrameAction} from "./actions/pop-frame-action";
 import {ActivateTerminalToolWindowAction} from "./actions/activate-terminal-tool-window-action";
+import {OpenClaudeInTerminalActionAction} from "./actions/open-claude-in-terminal-action-action";
 
 export class IdeaPlugin extends StreamDeckPluginHandler {
   constructor() {
@@ -39,6 +40,7 @@ export class IdeaPlugin extends StreamDeckPluginHandler {
     new ActionIdBrowserAction(this, 'com.jetbrains.idea.action.browser');
     new PopFrameAction(this, 'com.jetbrains.idea.action.pop.frame');
     new ActivateTerminalToolWindowAction(this, 'com.jetbrains.idea.action.terminal.toolwindow');
+    new OpenClaudeInTerminalActionAction(this, 'com.jetbrains.idea.action.claude.code');
   }
 }
 new IdeaPlugin()
